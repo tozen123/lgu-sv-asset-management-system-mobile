@@ -24,15 +24,15 @@
         android:src="@color/bg_green" />
 
     <TextView
-        android:layout_width="345dp"
-        android:layout_height="188dp"
+        android:layout_width="wrap_content"
+        android:layout_height="173dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
 
         android:layout_alignParentBottom="true"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="164dp"
+        android:layout_marginBottom="179dp"
         android:fontFamily="@font/poppins_bold"
         android:gravity="center"
         android:includeFontPadding="false"

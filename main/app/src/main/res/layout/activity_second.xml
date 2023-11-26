@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,76 +9,65 @@
     tools:context=".SecondActivity">
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/bg_green" />
-
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar2"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="-1dp"
-        android:background="@color/bg_green" />
-
-
     <TextView
-        android:layout_width="317dp"
-        android:layout_height="175dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="46dp"
-        android:layout_marginEnd="47dp"
-        android:layout_marginBottom="234dp"
+        android:id="@+id/textViewTitle"
+        android:layout_width="313dp"
+        android:layout_height="130dp"
         android:fontFamily="@font/poppins_bold"
-        android:gravity="center"
-        android:includeFontPadding="false"
         android:text="@string/LGU_AMS"
         android:textAlignment="center"
         android:textColor="#2D4D2E"
-        android:textSize="28sp" />
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.562" />
+
+    <TextView
+        android:id="@+id/textViewScan"
+        android:layout_width="345dp"
+        android:layout_height="69dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Asset QR Scanner"
+        android:textAlignment="center"
+        android:textColor="#2D4D2E"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.706" />
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="201dp"
-        android:layout_height="192dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="104dp"
+        android:layout_width="238dp"
+        android:layout_height="204dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ams_logo"
-        app:Layout_constraintEnd_toEndofOf="parent"
-        app:Layout_constraintHorinzontal_bias="0.489"
-        app:Layout_constraintStart_toStartOf="parent"
-        app:Layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/textViewTitle"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/startButton"
-        android:layout_width="wrap_content"
-        android:layout_height="58dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="81dp"
-        android:layout_marginTop="533dp"
-        android:layout_marginEnd="82dp"
-        android:layout_marginBottom="140dp"
+        android:layout_width="253dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/button_green"
         android:fontFamily="@font/poppins_bold"
-        android:textSize="18sp"
         android:text="LETS GET STARTED"
-        android:textColor="@color/bg_green" />
+        android:textColor="@color/bg_green"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView6"
+        app:layout_constraintVertical_bias="0.606"
+        android:onClick="onStartScanClicked"/>
 
-
-</RelativeLayout>
-
+</androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace 'com.doublehammerstudios.lgu_svassetmanagementsystemmobile'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.doublehammerstudios.lgu_svassetmanagementsystemmobile"

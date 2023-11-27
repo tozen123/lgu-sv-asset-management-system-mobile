@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
-        android:text="Scan Asset"
+        android:text="@string/scan"
         android:textColor="#2D4D2E"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -34,11 +34,11 @@
         app:layout_constraintHorizontal_bias="0.338"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.066" />
+        app:layout_constraintVertical_bias="0.065" />
 
     <View
         android:id="@+id/view"
-        android:layout_width="376dp"
+        android:layout_width="370dp"
         android:layout_height="4dp"
         android:background="#80C880"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -47,5 +47,49 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/scanAssetLabel"
         app:layout_constraintVertical_bias="0.0" />
+
+
+
+    <Button
+        android:id="@+id/scanButton"
+        android:layout_width="245dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/button_green"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/scan_asset"
+        android:textAlignment="center"
+        android:textColor="@color/bg_green"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.799" />
+
+    <ImageView
+        android:id="@+id/burgerMenu"
+        android:layout_width="48dp"
+        android:layout_height="38dp"
+        android:src="@drawable/baseline_menu_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.034" />
+
+
+        <TextureView
+            android:id="@+id/textureViewCamera"
+            android:layout_width="303dp"
+            android:layout_height="304dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.43" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

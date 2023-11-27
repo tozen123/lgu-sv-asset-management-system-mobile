@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <TextView
+        android:id="@+id/scanAssetLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/result"
+        android:textColor="#2D4D2E"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.208"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.044" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="370dp"
+        android:layout_height="4dp"
+        android:background="#80C880"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scanAssetLabel"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="49dp"
+        android:layout_height="39dp"
+        android:clickable="true"
+        android:contentDescription="Back"
+        android:onClick="goBack"
+        android:padding="2dp"
+        android:src="@drawable/baseline_arrow_back_24"
+        app:layout_constraintBottom_toBottomOf="@id/scanAssetLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.016"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.851" />
+
+
+    <ImageView
+        android:id="@+id/burgerMenu"
+        android:layout_width="48dp"
+        android:layout_height="38dp"
+        android:src="@drawable/baseline_menu_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.991"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01" />
+
+    <Button
+        android:id="@+id/viewButton"
+        android:layout_width="245dp"
+        android:layout_height="52dp"
+        android:backgroundTint="#E9F5E9"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/view_button"
+        android:textAlignment="center"
+        android:textColor="@color/bg_green"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.84" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

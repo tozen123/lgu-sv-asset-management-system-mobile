@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">LGU-SV Asset Management System Mobile</string>
     <string name="LGU_AMS">LGU-San Vicente Asset Management System</string>
+    <string name="qr_scanner">Asset QR Scanner</string>
+    <string name="start_button">LETS GET STARTED</string>
+    <string name="scan_asset">SCAN QR CODE</string>
+    <string name="scan">Scan Asset</string>
+    <string name="result">Result</string>
+    <string name="view_button">View Asset Info</string>
 </resources>

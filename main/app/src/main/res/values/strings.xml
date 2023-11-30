@@ -15,4 +15,9 @@
     <string name="signupQuestion">Don’t have an account?</string>
     <string name="greet">Welcome Onboard!</string>
     <string name="selectRole">Select your assigned role.</string>
+    <string name="next">NEXT</string>
+    <string name="confirmReg">Let us confirm your registration.</string>
+    <string name="note">NOTE: A manager ID is required to ensure that you are among the working personnel from LGU - San Vicente. The manager ID and password can be acquired through a request addressed to the Admin or Developer. You may change your password once you have logged in to the system.</string>
+
+
 </resources>

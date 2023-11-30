@@ -50,7 +50,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.43" />
+        app:layout_constraintVertical_bias="0.404" />
 
 
     <TextView
@@ -58,7 +58,7 @@
         android:layout_width="411dp"
         android:layout_height="46dp"
         android:fontFamily="@font/poppins"
-        android:text="@string/confirmReg"
+        android:text="@string/personalInfo"
         android:textAlignment="center"
         android:textColor="#2D4D2E"
         android:textSize="14sp"
@@ -67,7 +67,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.508" />
+        app:layout_constraintVertical_bias="0.481" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -85,13 +85,51 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/ID"
+        android:id="@+id/fullNmae"
         android:layout_width="258dp"
         android:layout_height="42dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/edittxt_bkg"
         android:fontFamily="@font/poppins_bold"
-        android:hint="Enter ID"
+        android:hint="Enter your Full Name"
+        android:inputType="textPersonName"
+        android:padding="2dp"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle2"
+        app:layout_constraintVertical_bias="0.105" />
+
+
+    <EditText
+        android:id="@+id/phoneNumber"
+        android:layout_width="258dp"
+        android:layout_height="42dp"
+        android:layout_gravity="center"
+        android:background="@drawable/edittxt_bkg"
+        android:fontFamily="@font/poppins_bold"
+        android:hint="Enter your Phone Number"
+        android:inputType="text|number"
+        android:padding="2dp"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/viewerButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.759" />
+
+
+    <EditText
+        android:id="@+id/department"
+        android:layout_width="258dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edittxt_bkg"
+        android:fontFamily="@font/poppins_bold"
+        android:hint="Select your Department"
         android:inputType="text|numberSigned"
         android:padding="2dp"
         android:textSize="14dp"
@@ -100,17 +138,17 @@
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitle2"
-        app:layout_constraintVertical_bias="0.08" />
+        app:layout_constraintVertical_bias="0.418" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/email"
         android:layout_width="258dp"
         android:layout_height="42dp"
         android:layout_gravity="center"
         android:background="@drawable/edittxt_bkg"
         android:fontFamily="@font/poppins_bold"
-        android:hint="Enter Password"
-        android:inputType="textPassword"
+        android:hint="Enter you E-mail"
+        android:inputType="textEmailAddress"
         android:padding="2dp"
         android:textSize="14dp"
         app:layout_constraintBottom_toTopOf="@+id/viewerButton"
@@ -118,27 +156,12 @@
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.837" />
-
-    <TextView
-        android:id="@+id/note"
-        android:layout_width="260dp"
-        android:layout_height="58dp"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="@font/poppins"
-        android:text="@string/note"
-        android:textAlignment="inherit"
-        android:textColor="@color/black"
-        android:textSize="8sp"
-        app:layout_constraintBottom_toTopOf="@+id/viewerButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintVertical_bias="0.946" />
 
     <Button
         android:id="@+id/viewerButton"
         android:layout_width="253dp"
         android:layout_height="66dp"
-        android:layout_marginBottom="88dp"
         android:backgroundTint="@color/button_green"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/next"
@@ -148,8 +171,9 @@
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.474"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/borderTop"
-        app:layout_constraintVertical_bias="0.998" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.929" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

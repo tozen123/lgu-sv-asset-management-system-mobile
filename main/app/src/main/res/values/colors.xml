@@ -7,9 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="bg_green">#2D4D2E</color>
-    <color name="bar_green">#EEF2EE</color>
-    <color name="button_green">#80C880</color>
-    <color name="green">#87BC87</color>
+    <color name="dark_green">#2D4D2E</color>
+    <color name="light_green">#EEF2EE</color>
+    <color name="green_1">#80C880</color>
+    <color name="green_2">#87BC87</color>
+    <color name="button_green">#447145</color>
 
 </resources>

@@ -7,4 +7,7 @@
     <string name="scan">Scan Asset</string>
     <string name="result">Result</string>
     <string name="view_button">View Asset Info</string>
+    <string name="supervisor">SUPERVISOR</string>
+    <string name="employee">EMPLOYEE</string>
+    <string name="viewer">VIEWER</string>
 </resources>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".RolesActivity">
+
+    <View
+        android:id="@+id/borderTop"
+        android:layout_width="413dp"
+        android:layout_height="41dp"
+        android:background="@color/dark_green"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <Button
+        android:id="@+id/supervisorButton"
+        android:layout_width="253dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/button_green"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/supervisor"
+        android:textAlignment="center"
+        android:textColor="@color/light_green"
+        android:textSize="18sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/employeeButton"
+        android:layout_width="253dp"
+        android:layout_height="66dp"
+        android:backgroundTint="@color/button_green"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/employee"
+        android:textAlignment="center"
+        android:textColor="@color/light_green"
+        android:textSize="18sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/viewerButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/supervisorButton" />
+
+    <Button
+        android:id="@+id/viewerButton"
+        android:layout_width="253dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="88dp"
+        android:backgroundTint="@color/button_green"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/viewer"
+        android:textAlignment="center"
+        android:textColor="@color/light_green"
+        android:textSize="18sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/borderTop"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textViewTitle2"
+        android:layout_width="409dp"
+        android:layout_height="115dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/LGU_AMS"
+        android:textAlignment="center"
+        android:textColor="#2D4D2E"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.485" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="202dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="48dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ams_logo"
+        app:layout_constraintBottom_toTopOf="@+id/textViewTitle2"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

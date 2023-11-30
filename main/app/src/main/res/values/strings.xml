@@ -10,4 +10,9 @@
     <string name="supervisor">SUPERVISOR</string>
     <string name="employee">EMPLOYEE</string>
     <string name="viewer">VIEWER</string>
+    <string name="login">LOGIN</string>
+    <string name="signup">SIGN UP</string>
+    <string name="signupQuestion">Don’t have an account?</string>
+    <string name="greet">Welcome Onboard!</string>
+    <string name="selectRole">Select your assigned role.</string>
 </resources>

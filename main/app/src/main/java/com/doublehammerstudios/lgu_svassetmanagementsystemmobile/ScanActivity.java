@@ -1,138 +1,60 @@
 package com.doublehammerstudios.lgu_svassetmanagementsystemmobile;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import android.content.Context;
-import android.graphics.SurfaceTexture;
-import android.hardware.camera2.CameraAccessException;
-import android.hardware.camera2.CameraCaptureSession;
-import android.hardware.camera2.CameraDevice;
-import android.hardware.camera2.CameraManager;
-import android.hardware.camera2.CaptureRequest;
-import android.util.Size;
-import android.view.Surface;
-import android.view.TextureView;
 
-import java.util.Collections;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 public class ScanActivity extends AppCompatActivity {
-
-    private static final int REQUEST_CAMERA_PERMISSION = 1;
-    private TextureView textureViewCamera;
-    private CameraDevice cameraDevice;
-    private CaptureRequest.Builder previewRequestBuilder;
-    private CameraCaptureSession cameraCaptureSession;
-
-    private final TextureView.SurfaceTextureListener surfaceTextureListener =
-            new TextureView.SurfaceTextureListener() {
-                @Override
-                public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int width, int height) {
-                    openCamera();
-                }
-
-                @Override
-                public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int width, int height) {
-                }
-
-                @Override
-                public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-                    return false;
-                }
-
-                @Override
-                public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-                }
-            };
+    private static final int CAMERA_PERMISSION_REQUEST_CODE = 200;
+    private IntentIntegrator qrScan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
 
-        textureViewCamera = findViewById(R.id.textureViewCamera);
-        textureViewCamera.setSurfaceTextureListener(surfaceTextureListener);
-    }
+        qrScan = new IntentIntegrator(this);
 
-    private void openCamera() {
-        CameraManager cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-        String cameraId = null;
-
-        try {
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-                    != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
-                return;
+        Button scanButton = findViewById(R.id.scanButton);
+        scanButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentIntegrator intentIntegrator = new IntentIntegrator(ScanActivity.this);
+                intentIntegrator.setOrientationLocked(true);
+                intentIntegrator.setBeepEnabled(true);
+                intentIntegrator.setCaptureActivity(CaptureActivityPortrait.class);
+                intentIntegrator.setPrompt("Scanning code...");
+                intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
+                intentIntegrator.initiateScan();
+                startQRScan();
             }
-            cameraId = cameraManager.getCameraIdList()[0]; // Get the first camera
-            cameraManager.openCamera(cameraId, new CameraDevice.StateCallback() {
-                @Override
-                public void onOpened(@NonNull CameraDevice cameraDevice) {
-                    ScanActivity.this.cameraDevice = cameraDevice;
-                    createCameraPreviewSession();
-                }
-
-                @Override
-                public void onDisconnected(@NonNull CameraDevice cameraDevice) {
-                    cameraDevice.close();
-                    ScanActivity.this.cameraDevice = null;
-                }
-
-                @Override
-                public void onError(@NonNull CameraDevice cameraDevice, int error) {
-                    cameraDevice.close();
-                    ScanActivity.this.cameraDevice = null;
-                }
-            }, null);
-        } catch (CameraAccessException e) {
-            e.printStackTrace();
-        }
+        });
     }
 
-    private void createCameraPreviewSession() {
-        try {
-            SurfaceTexture texture = textureViewCamera.getSurfaceTexture();
-            assert texture != null;
-            texture.setDefaultBufferSize(1920, 1080);
+    private void startQRScan() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+            // Request camera permission if not granted
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.CAMERA},
+                    CAMERA_PERMISSION_REQUEST_CODE);
+        } else {
+            // Start QR code scanning
+            qrScan.initiateScan();
 
-            Surface surface = new Surface(texture);
-            previewRequestBuilder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
-            previewRequestBuilder.addTarget(surface);
-
-            cameraDevice.createCaptureSession(Collections.singletonList(surface),
-                    new CameraCaptureSession.StateCallback() {
-                        @Override
-                        public void onConfigured(@NonNull CameraCaptureSession session) {
-                            if (cameraDevice == null) {
-                                return;
-                            }
-                            cameraCaptureSession = session;
-                            updatePreview();
-                        }
-
-                        @Override
-                        public void onConfigureFailed(@NonNull CameraCaptureSession session) {
-                        }
-                    }, null);
-        } catch (CameraAccessException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void updatePreview() {
-        if (cameraDevice == null) {
-            return;
-        }
-        previewRequestBuilder.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_AUTO);
-        try {
-            cameraCaptureSession.setRepeatingRequest(previewRequestBuilder.build(), null, null);
-        } catch (CameraAccessException e) {
-            e.printStackTrace();
         }
     }
 
@@ -140,37 +62,36 @@ public class ScanActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_CAMERA_PERMISSION) {
+        if (requestCode == CAMERA_PERMISSION_REQUEST_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                openCamera();
+                // Permission granted, start QR code scanning
+                qrScan.initiateScan();
+            } else {
+                // Permission denied, show a message or handle accordingly
+                Toast.makeText(this, "Camera permission denied", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        if (textureViewCamera.isAvailable()) {
-            openCamera();
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null) {
+            if (result.getContents() == null) {
+                // Handle when no QR code is found
+                Toast.makeText(this, "No QR code found", Toast.LENGTH_SHORT).show();
+            } else {
+                // Handle the scanned QR code result
+                String scannedData = result.getContents();
+                Log.d("Scanned Data", scannedData);
+
+                // Pass the scanned data to the ScanResultActivity
+                Intent intent = new Intent(this, ScanResultActivity.class);
+                intent.putExtra("SCANNED_DATA", scannedData);
+                startActivity(intent);
+            }
         } else {
-            textureViewCamera.setSurfaceTextureListener(surfaceTextureListener);
-        }
-    }
-
-    @Override
-    protected void onPause() {
-        closeCamera();
-        super.onPause();
-    }
-
-    private void closeCamera() {
-        if (cameraDevice != null) {
-            cameraDevice.close();
-            cameraDevice = null;
-        }
-        if (cameraCaptureSession != null) {
-            cameraCaptureSession.close();
-            cameraCaptureSession = null;
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 }
